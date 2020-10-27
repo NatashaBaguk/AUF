@@ -1,9 +1,7 @@
 package step;
 
 import org.openqa.selenium.WebDriver;
-import pages.DeleteProjectPage;
-import pages.EditProjectPage;
-import pages.ProjectPage;
+import pages.*;
 
 public class ProjectSteps {
     private WebDriver driver;
