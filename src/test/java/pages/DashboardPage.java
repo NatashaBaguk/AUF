@@ -11,7 +11,7 @@ public class DashboardPage extends BasePage {
 
     private static By SELECT_PROJECT_LOCATOR = By.xpath("//*[@class='column summary-column flex-projects-2']/preceding::a[@href='index.php?/projects/overview/152'][2]");
     private static By SELECT_TESTCASES_LOCATOR = By.id("navigation-suites");
-    private static By ADD_TESTCASE_LOCATOR = By.partialLinkText("Add Test Case");
+
 
     public DashboardPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
@@ -36,9 +36,6 @@ public class DashboardPage extends BasePage {
         return driver.findElement(SELECT_TESTCASES_LOCATOR);
     }
 
-    private WebElement setAddTestCase (){
-        return driver.findElement(ADD_TESTCASE_LOCATOR);
-    }
 
     public void getSelectProject (){
         setSelectProject().click();
@@ -48,7 +45,4 @@ public class DashboardPage extends BasePage {
         setSelectTestCases().click();
     }
 
-    public void getAddTestCase (){
-        setAddTestCase().click();
-    }
 }
