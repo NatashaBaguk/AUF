@@ -1,8 +1,8 @@
 package step;
 
 import org.openqa.selenium.WebDriver;
-import pages.ProjectDeletePage;
-import pages.ProjectEditPage;
+import pages.DeleteProjectPage;
+import pages.EditProjectPage;
 import pages.ProjectPage;
 
 public class ProjectSteps {
@@ -22,17 +22,17 @@ public class ProjectSteps {
     }
 
     public void edit (String text) {
-        ProjectEditPage projectEditPage = new ProjectEditPage(driver, true);
-        projectEditPage.setButtonEdit();
-        projectEditPage.setAnnouncement(text);
-        projectEditPage.setSaveProject();
+        EditProjectPage editProjectPage = new EditProjectPage(driver, true);
+        editProjectPage.setButtonEdit();
+        editProjectPage.setAnnouncement(text);
+        editProjectPage.setSaveProject();
 
     }
 
     public void delete (){
-        ProjectDeletePage projectDeletePage = new ProjectDeletePage(driver, true);
-        projectDeletePage.setIcon();
-        projectDeletePage.setTick();
-        projectDeletePage.setButton();
+        DeleteProjectPage deleteProjectPage = new DeleteProjectPage(driver, true);
+        deleteProjectPage.setIcon();
+        deleteProjectPage.setTick();
+        deleteProjectPage.setButton();
     }
 }

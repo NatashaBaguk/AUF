@@ -5,14 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ProjectEditPage extends BasePage {
+public class EditProjectPage extends BasePage {
 
     private static String ENDPOINT = "index.php?/admin/projects/overview";
     private static By BUTTON_EDIT_LOCATOR = By.className("icon-small-edit");
     private static By ANNOUNCEMENT_LOCATOR = By.id("announcement");
     private static By SAVE_PROJECT_LOCATOR = By.id("accept");
 
-    public ProjectEditPage(WebDriver driver, boolean openPageByUrl) {
+    public EditProjectPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
     }
 
