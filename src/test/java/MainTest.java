@@ -3,7 +3,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.ProjectDeletePage;
+import step.AddTestCaseSteps;
 import step.LoginSteps;
 import step.ProjectSteps;
 
@@ -64,7 +64,7 @@ public class MainTest extends BaseTest {
         Assert.assertTrue(true);
     }
 
-    @Test(priority = 4)
+    @Test(enabled = false)
     public void deleteProject (){
         projectSteps = new ProjectSteps(driver);
         projectSteps.delete();
@@ -92,11 +92,21 @@ public class MainTest extends BaseTest {
 //        loginSteps.login(username, psw);
 //    }
 
-    @DataProvider(name = "Последовательность тестов")
-    public Object [][] sequence (){
+    @DataProvider(name = "Создание тест-кейса")
+    public Object [][] validDataTestCase (){
         return new Object[][] {
-                {},
+                {"Зайти на TestRail", "Открыть страницу. Ввести креды. Нажать кнопку Login.","Откроется дашборд"},
+                {""}
         };
+    }
+    @Test(dataProvider = "Создание тест-кейса")
+    public void validDataForTestCase (String title, String steps, String ExpectedResult){
+
+        loginPositiveTest();
+        AddTestCaseSteps addTestCaseSteps = new AddTestCaseSteps(driver);
+        addTestCaseSteps.createTestCase(title,steps,ExpectedResult);
+
+
     }
 
 
