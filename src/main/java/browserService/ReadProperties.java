@@ -42,4 +42,40 @@ public class ReadProperties {
     public String getUsername (){
         return properties.getProperty("username");
     }
+
+    public String getTitle1 (){
+        return properties.getProperty("title1");
+    }
+
+    public String getTitle2(){
+        return properties.getProperty("title2");
+    }
+
+    public String getTitle3(){
+        return properties.getProperty("title3");
+    }
+
+    public String getSteps1(){
+        return properties.getProperty("Steps1");
+    }
+
+    public String getSteps2 (){
+        return properties.getProperty("Steps2");
+    }
+
+    public String getSteps3 (){
+        return properties.getProperty("Steps3");
+    }
+
+    public String getResult1 (){
+        return properties.getProperty("Result1");
+    }
+
+    public String getResult2 (){
+        return properties.getProperty("Result2");
+    }
+
+    public String getResult3 (){
+        return properties.getProperty("Result3");
+    }
 }

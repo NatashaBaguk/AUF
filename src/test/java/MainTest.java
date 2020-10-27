@@ -95,8 +95,9 @@ public class MainTest extends BaseTest {
     @DataProvider(name = "Создание тест-кейса")
     public Object [][] validDataTestCase (){
         return new Object[][] {
-                {"Зайти на TestRail", "Открыть страницу. Ввести креды. Нажать кнопку Login.","Откроется дашборд"},
-                {""}
+                {readProperties.getTitle1(), readProperties.getSteps1(),readProperties.getResult1()},
+                {readProperties.getTitle2(), readProperties.getSteps2(),readProperties.getResult2()},
+                {readProperties.getTitle3(), readProperties.getSteps3(), readProperties.getResult3()}
         };
     }
     @Test(dataProvider = "Создание тест-кейса")
