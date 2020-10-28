@@ -16,13 +16,13 @@ public class BaseTest {
     public BaseTest() {
     }
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         this.driver = new BrowserService().getDriver();
         driver.get(new ReadProperties().getURL());
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown(){
         driver.quit();
 
