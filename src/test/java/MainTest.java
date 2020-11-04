@@ -1,6 +1,8 @@
 import baseEntities.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import step.AddTestCaseSteps;
@@ -72,43 +74,41 @@ public class MainTest extends BaseTest {
         Assert.assertTrue(true);
     }
 
-//    @DataProvider(name = "набор кредов")
-//    public Object[][] credentialsForTest (){
-//        return new Object[][] {
-//                {readProperties.getUsername(),readProperties.getPassword()},
-//                {"Username","w3n1bU7F4rxOfnfvrBJL"},
-//                {"Username","dfdgdfg"}
-//        };
-//    }
-//    @Test(dataProvider = "набор кредов")
-//    public void testLoginWithMultipleCredentials (String username, String psw){
-//        loginSteps = new LoginSteps(driver);
-//        loginSteps.login(username, psw);
-//    }
-//
-//    @Parameters({"username", "psw"})
-//    @Test()
-//    public void testLoginWithParameters (@Optional("sdfh") String username, @Optional("2") String psw){
-//        loginSteps = new LoginSteps(driver);
-//        loginSteps.login(username, psw);
-//    }
+    @DataProvider(name = "набор кредов")
+    public Object[][] credentialsForTest (){
+        return new Object[][] {
+                {readProperties.getUsername(),readProperties.getPassword()},
+                {"Username","w3n1bU7F4rxOfnfvrBJL"},
+                {"Username","dfdgdfg"}
+        };
+    }
+    @Test(dataProvider = "набор кредов")
+    public void testLoginWithMultipleCredentials (String username, String psw){
+        loginSteps = new LoginSteps(driver);
+        loginSteps.login(username, psw);
+    }
+
+    @Parameters({"username", "psw"})
+    @Test()
+    public void testLoginWithParameters (@Optional("sdfh") String username, @Optional("2") String psw){
+        loginSteps = new LoginSteps(driver);
+        loginSteps.login(username, psw);
+    }
 
     @DataProvider(name = "Создание тест-кейса")
     public Object [][] validDataTestCase (){
         return new Object[][] {
                 {readProperties.getTitle1(), readProperties.getSteps1(),readProperties.getResult1()},
                 {readProperties.getTitle2(), readProperties.getSteps2(),readProperties.getResult2()},
-                {readProperties.getTitle3(), readProperties.getSteps3(), readProperties.getResult3()}
+                {readProperties.getTitle3(), readProperties.getSteps3(),readProperties.getResult3()}
         };
     }
+
     @Test(dataProvider = "Создание тест-кейса")
     public void validDataForTestCase (String title, String steps, String ExpectedResult){
-
         loginPositiveTest();
         AddTestCaseSteps addTestCaseSteps = new AddTestCaseSteps(driver);
         addTestCaseSteps.createTestCase(title,steps,ExpectedResult);
-
-
     }
 
     @Test(retryAnalyzer = Retry.class)

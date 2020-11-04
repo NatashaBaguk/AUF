@@ -34,18 +34,8 @@ public class BrowserService {
 
                 driver = new FirefoxDriver();
                 break;
-
-//            case "ie":
-//                classLoader = getClass().getClassLoader();
-//                file = new File(classLoader.getResource("drivers/IEDriverServer.exe").getFile());
-//                absolutePath = file.getAbsolutePath();
-//
-//                System.setProperty("webdriver.ie.driver", absolutePath);
-//
-//                driver = new InternetExplorerDriver();
-//                driver.manage().window().maximize();
-//                break;
-
+            case "ie":
+                break;
             case "edge":
                 classLoader("drivers/msedgedriver.exe","webdriver.edge.driver");
 

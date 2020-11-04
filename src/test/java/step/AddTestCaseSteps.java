@@ -15,7 +15,7 @@ public class AddTestCaseSteps {
     public void createTestCase (String title, String steps, String ExpectedResult){
         DashboardPage dashboardPage = new DashboardPage(driver,true);
         dashboardPage.getSelectProject();
-        dashboardPage.getSelectTestCases();
+        dashboardPage.clickSelectTestCases();
 
         TestCasesPage testCasesPage = new TestCasesPage(driver,true);
         testCasesPage.getAddTestCase();
