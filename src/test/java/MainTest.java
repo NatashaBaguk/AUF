@@ -6,6 +6,7 @@ import pages.LoginPage;
 import step.AddTestCaseSteps;
 import step.LoginSteps;
 import step.ProjectSteps;
+import utils.Retry;
 
 public class MainTest extends BaseTest {
     private LoginSteps loginSteps;
@@ -108,6 +109,11 @@ public class MainTest extends BaseTest {
         addTestCaseSteps.createTestCase(title,steps,ExpectedResult);
 
 
+    }
+
+    @Test(retryAnalyzer = Retry.class)
+    public void retryTest (){
+        throw new NullPointerException();
     }
 
 
