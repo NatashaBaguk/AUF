@@ -1,28 +1,33 @@
 import baseEntities.BaseTest;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import step.AddTestCaseSteps;
 import step.LoginSteps;
 import step.ProjectSteps;
-import utils.Retry;
+
 
 public class MainTest extends BaseTest {
+
+
     private LoginSteps loginSteps;
     private ProjectSteps projectSteps;
-    private LoginPage loginPage;
 
-    @Test(priority = 1)
+    @Test(priority = 1, description = "Description for Allure")
+    @Description("Немного деталей по тесту")
+    @Link("https://aqa07.atlassian.net/browse/AQA07-25")
+    @TmsLink("1")
+    @Severity(SeverityLevel.BLOCKER)
     public void loginPositiveTest() {
         loginSteps = new LoginSteps(driver);
         loginSteps.login(readProperties.getUsername(), readProperties.getPassword());
         Assert.assertTrue(true);
     }
 
-    @Test(enabled = false)
+    @Test(priority = 2)
+    @Issue("AQA07-25")
     public void loginNegativeTest () {
       loginSteps = new LoginSteps(driver);
       loginSteps.login("fail", readProperties.getPassword());
@@ -32,7 +37,7 @@ public class MainTest extends BaseTest {
               "Incorrect message");
     }
 
-    @Test(enabled = false)
+    @Test
     public void loginNegativeTest1 () {
       loginSteps = new LoginSteps(driver);
       loginSteps.login(readProperties.getUsername(), "123");
@@ -88,13 +93,6 @@ public class MainTest extends BaseTest {
         loginSteps.login(username, psw);
     }
 
-    @Parameters({"username", "psw"})
-    @Test()
-    public void testLoginWithParameters (@Optional("sdfh") String username, @Optional("2") String psw){
-        loginSteps = new LoginSteps(driver);
-        loginSteps.login(username, psw);
-    }
-
     @DataProvider(name = "Создание тест-кейса")
     public Object [][] validDataTestCase (){
         return new Object[][] {
@@ -110,12 +108,5 @@ public class MainTest extends BaseTest {
         AddTestCaseSteps addTestCaseSteps = new AddTestCaseSteps(driver);
         addTestCaseSteps.createTestCase(title,steps,ExpectedResult);
     }
-
-    @Test(retryAnalyzer = Retry.class)
-    public void retryTest (){
-        throw new NullPointerException();
-    }
-
-
 
 }

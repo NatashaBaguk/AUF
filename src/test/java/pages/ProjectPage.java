@@ -51,7 +51,7 @@ public class ProjectPage extends BasePage {
     }
 
     public void setButtonAddProject (){
-        getButtonAddProject().click();
+        getButtonAddProject().submit();
     }
 
 }

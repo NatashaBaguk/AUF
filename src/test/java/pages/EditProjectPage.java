@@ -45,7 +45,7 @@ public class EditProjectPage extends BasePage {
     }
 
     public void setSaveProject (){
-        getSaveProject().click();
+        getSaveProject().submit();
     }
 }
 
