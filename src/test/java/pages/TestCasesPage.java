@@ -29,27 +29,27 @@ public class TestCasesPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return driver.findElement(ADD_TESTCASE_LOCATOR).isDisplayed();
+        return waiters.isElementDisplayed(ADD_TESTCASE_LOCATOR);
     }
 
     private WebElement setAddTestCase (){
-        return driver.findElement(ADD_TESTCASE_LOCATOR);
+        return waiters.getElementBy(ADD_TESTCASE_LOCATOR);
     }
 
     private WebElement setTitle(){
-        return driver.findElement(TITLE_LOCATOR);
+        return waiters.getElementBy(TITLE_LOCATOR);
     }
 
     private WebElement setSteps(){
-        return driver.findElement(STEPS_LOCATOR);
+        return waiters.getElementBy(STEPS_LOCATOR);
     }
 
     private WebElement setExpectedResult (){
-        return driver.findElement(EXPECTED_RESULT_LOCATOR);
+        return waiters.getElementBy(EXPECTED_RESULT_LOCATOR);
     }
 
     private WebElement setAddTestCaseButton (){
-        return driver.findElement(ADD_TESTCASE_BUTTON_LOCATOR);
+        return waiters.getElementBy(ADD_TESTCASE_BUTTON_LOCATOR);
     }
 
     public void getAddTestCase (){

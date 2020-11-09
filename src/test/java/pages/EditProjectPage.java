@@ -23,18 +23,18 @@ public class EditProjectPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return driver.findElement(BUTTON_EDIT_LOCATOR).isDisplayed();
+        return waiters.isElementDisplayed(BUTTON_EDIT_LOCATOR);
     }
 
     private WebElement getButtonEdit (){
-        return  driver.findElement(BUTTON_EDIT_LOCATOR);
+        return  waiters.getElementBy(BUTTON_EDIT_LOCATOR);
     }
     private WebElement getAnnouncement (){
-        return driver.findElement(ANNOUNCEMENT_LOCATOR);
+        return waiters.getElementBy(ANNOUNCEMENT_LOCATOR);
     }
 
     private WebElement getSaveProject (){
-        return driver.findElement(SAVE_PROJECT_LOCATOR);
+        return waiters.getElementBy(SAVE_PROJECT_LOCATOR);
     }
 
     public void setButtonEdit (){

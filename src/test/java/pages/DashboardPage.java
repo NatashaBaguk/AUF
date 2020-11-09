@@ -24,15 +24,15 @@ public class DashboardPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return driver.findElement(SELECT_PROJECT_LOCATOR).isDisplayed();
+        return waiters.isElementDisplayed(SELECT_PROJECT_LOCATOR);
     }
 
     private WebElement findSelectProject (){
-        return driver.findElement(SELECT_PROJECT_LOCATOR);
+        return waiters.getElementBy(SELECT_PROJECT_LOCATOR);
     }
 
     private WebElement setSelectTestCases (){
-        return driver.findElement(SELECT_TESTCASES_LOCATOR);
+        return waiters.getElementBy(SELECT_TESTCASES_LOCATOR);
     }
 
     public void getSelectProject (){

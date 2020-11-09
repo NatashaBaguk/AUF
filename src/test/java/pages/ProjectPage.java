@@ -25,22 +25,20 @@ public class ProjectPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return driver.findElement(ADD_BUTTON_LOCATOR).isDisplayed();
+        return waiters.isElementDisplayed(By.id("sidebar-button"));
     }
 
     private WebElement getAddProject (){
-       return driver.findElement(ADD_BUTTON_LOCATOR);
+       return waiters.getElementBy(ADD_BUTTON_LOCATOR);
     }
 
     private WebElement getNameField (){
-        return driver.findElement(NAME_FIELD_LOCATOR);
+        return waiters.getElementBy(NAME_FIELD_LOCATOR);
     }
 
     private WebElement getButtonAddProject (){
-        return driver.findElement(ADD_PROJECT_LOCATOR);
+        return waiters.getElementBy(ADD_PROJECT_LOCATOR);
     }
-
-
 
     public void setAddProject (){
         getAddProject().click();
