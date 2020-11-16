@@ -29,27 +29,27 @@ public class TestCasesPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return waiters.isElementDisplayed(ADD_TESTCASE_LOCATOR);
+        return waits.isElementDisplayed(ADD_TESTCASE_LOCATOR);
     }
 
     private WebElement setAddTestCase (){
-        return waiters.getElementBy(ADD_TESTCASE_LOCATOR);
+        return waits.getElementBy(ADD_TESTCASE_LOCATOR);
     }
 
     private WebElement setTitle(){
-        return waiters.getElementBy(TITLE_LOCATOR);
+        return waits.getElementBy(TITLE_LOCATOR);
     }
 
     private WebElement setSteps(){
-        return waiters.getElementBy(STEPS_LOCATOR);
+        return waits.getElementBy(STEPS_LOCATOR);
     }
 
     private WebElement setExpectedResult (){
-        return waiters.getElementBy(EXPECTED_RESULT_LOCATOR);
+        return waits.getElementBy(EXPECTED_RESULT_LOCATOR);
     }
 
     private WebElement setAddTestCaseButton (){
-        return waiters.getElementBy(ADD_TESTCASE_BUTTON_LOCATOR);
+        return waits.getElementBy(ADD_TESTCASE_BUTTON_LOCATOR);
     }
 
     public void getAddTestCase (){

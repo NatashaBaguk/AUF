@@ -8,16 +8,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Waiters {
+public class Waits {
     private WebDriver driver;
     private WebDriverWait webDriverWait;
 
-    public Waiters(WebDriver driver, int timeOut) {
+    public Waits(WebDriver driver, int timeOut) {
         this.driver = driver;
         webDriverWait = new WebDriverWait(driver, timeOut);
     }
 
-    public Waiters(WebDriver driver) {
+    public Waits(WebDriver driver) {
         this.driver = driver;
         ReadProperties readProperties = new ReadProperties();
         webDriverWait = new WebDriverWait(driver, readProperties.getTimeOut());
@@ -34,9 +34,25 @@ public class Waiters {
 
     public WebElement getElementBy(By by) {
         try {
-           return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(by));
+            return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(by));
         } catch (TimeoutException ex) {
             return null;
+        }
+    }
+
+    public WebElement isElementClickable(WebElement webElement) {
+        try {
+            return webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+        } catch (TimeoutException ex) {
+            return null;
+        }
+    }
+
+    public void invisibilityElement(By by) {
+        try {
+            webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+        } catch (TimeoutException e) {
+            System.out.println("Элемент присутствует на странице");
         }
     }
 }

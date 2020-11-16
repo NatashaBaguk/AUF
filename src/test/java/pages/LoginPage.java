@@ -2,11 +2,10 @@ package pages;
 
 import baseEntities.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import wrappers.Input;
+import wrappers.UIElement;
 
 public class LoginPage extends BasePage {
 
@@ -30,20 +29,21 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        return waiters.isElementDisplayed(By.id("button_primary"));
+        return waits.isElementDisplayed(By.id("button_primary"));
     }
 
-    private WebElement getUsernameField() {
-        return waiters.getElementBy(USERNAME_LOCATOR);
+    public Input getUsernameField() {
+       // return waites.getElementBy(USERNAME_LOCATOR);
+        return new Input(driver,USERNAME_LOCATOR);
     }
 
-    private WebElement getPasswordField() {
-        return waiters.getElementBy(PASSWORD_LOCATOR);
+    private Input getPasswordField() {
+        return new Input(driver,PASSWORD_LOCATOR);
 
     }
 
     private WebElement getButton() {
-        return waiters.getElementBy(BUTTON_LOCATOR);
+        return waits.getElementBy(BUTTON_LOCATOR);
     }
 
     public void setUsernameField(String username) {
@@ -59,10 +59,10 @@ public class LoginPage extends BasePage {
     }
 
     public WebElement getErrorMessage() {
-        return waiters.getElementBy(ERROR_MESSAGE_LOCATOR);
+        return waits.getElementBy(ERROR_MESSAGE_LOCATOR);
     }
 
     public WebElement getErrorPassword() {
-        return waiters.getElementBy(ERROR_PASSWORD_LOCATOR);
+        return waits.getElementBy(ERROR_PASSWORD_LOCATOR);
     }
 }

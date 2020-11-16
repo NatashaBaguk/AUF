@@ -4,6 +4,7 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import wrappers.Checkbox;
 
 public class EditProjectPage extends BasePage {
 
@@ -11,6 +12,7 @@ public class EditProjectPage extends BasePage {
     private static By BUTTON_EDIT_LOCATOR = By.className("icon-small-edit");
     private static By ANNOUNCEMENT_LOCATOR = By.id("announcement");
     private static By SAVE_PROJECT_LOCATOR = By.id("accept");
+    private static By CHECKBOX_LOCATOR = By.id("show_announcement");
 
     public EditProjectPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
@@ -23,18 +25,24 @@ public class EditProjectPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return waiters.isElementDisplayed(BUTTON_EDIT_LOCATOR);
+        return waits.isElementDisplayed(BUTTON_EDIT_LOCATOR);
     }
 
+
     private WebElement getButtonEdit (){
-        return  waiters.getElementBy(BUTTON_EDIT_LOCATOR);
+        return  waits.getElementBy(BUTTON_EDIT_LOCATOR);
     }
+
     private WebElement getAnnouncement (){
-        return waiters.getElementBy(ANNOUNCEMENT_LOCATOR);
+        return waits.getElementBy(ANNOUNCEMENT_LOCATOR);
+    }
+
+    private Checkbox getCheckbox (){
+        return new Checkbox(driver,CHECKBOX_LOCATOR);
     }
 
     private WebElement getSaveProject (){
-        return waiters.getElementBy(SAVE_PROJECT_LOCATOR);
+        return waits.getElementBy(SAVE_PROJECT_LOCATOR);
     }
 
     public void setButtonEdit (){
@@ -47,5 +55,10 @@ public class EditProjectPage extends BasePage {
     public void setSaveProject (){
         getSaveProject().submit();
     }
+
+    public void setCheckbox (){
+        getCheckbox().click();
+    }
 }
+
 

@@ -23,19 +23,19 @@ public class DeleteProjectPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return waiters.getElementBy(ICON_LOCATOR).isDisplayed();
+        return waits.getElementBy(ICON_LOCATOR).isDisplayed();
     }
 
     private WebElement getIcon (){
-        return waiters.getElementBy(ICON_LOCATOR);
+        return waits.getElementBy(ICON_LOCATOR);
     }
 
     private WebElement getTick (){
-        return waiters.getElementBy(TICK_LOCATOR);
+        return waits.getElementBy(TICK_LOCATOR);
     }
 
     private WebElement getButton (){
-        return waiters.getElementBy(OK_BUTTON_LOCATOR);
+        return waits.getElementBy(OK_BUTTON_LOCATOR);
     }
 
     public void setIcon (){
