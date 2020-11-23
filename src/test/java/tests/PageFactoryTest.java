@@ -30,7 +30,7 @@ public class PageFactoryTest extends BaseTest {
 //        LoginSteps loginSteps = new LoginSteps(driver);
 //        loginSteps.login(user);
 
-//        Project project = new Project("Main Project by Marina", "Description by Marina",
+//        Project project = new Project("Project by Natasha", "Description",
 //                true, 1, false);
 //
 //        ProjectBuilder projectBuilder = ProjectBuilder.newBuilder()
