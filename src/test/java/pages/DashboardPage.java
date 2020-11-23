@@ -55,8 +55,6 @@ public class DashboardPage extends BasePage {
 //        js.executeScript("arguments[0].scrollIntoView(true)", webElement);
         js.executeScript("arguments[0].click;", webElement);
         webElement.click();
-
-
     }
 
 }
