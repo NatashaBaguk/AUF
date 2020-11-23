@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class DashboardPage extends BasePage {
 
-    private static String ENDPOINT ="index.php?/dashboard";
+    private static String ENDPOINT = "index.php?/dashboard";
 
     private static By SELECT_PROJECT_LOCATOR = By.xpath("//*[@class='column summary-column flex-projects-2']/preceding::a[@href='index.php?/projects/overview/152'][2]");
     private static By SELECT_TESTCASES_LOCATOR = By.id("navigation-suites");
@@ -29,34 +29,32 @@ public class DashboardPage extends BasePage {
         return waits.isElementDisplayed(SELECT_PROJECT_LOCATOR);
     }
 
-    private WebElement findSelectProject (){
+    private WebElement findSelectProject() {
         return waits.getElementBy(SELECT_PROJECT_LOCATOR);
     }
 
-    private WebElement setSelectTestCases (){
+    private WebElement setSelectTestCases() {
         return waits.getElementBy(SELECT_TESTCASES_LOCATOR);
     }
 
-    public void getSelectProject (){
+    public void getSelectProject() {
         findSelectProject().click();
     }
 
-    public void clickSelectTestCases (){
+    public void clickSelectTestCases() {
         setSelectTestCases().click();
     }
 
-    public WebElement getBottomProjectLinkSelector (){
+    public WebElement getBottomProjectLinkSelector() {
         return waits.getElementBy(bottomProjectLinkSelector);
     }
 
-    public void clickBottomProjectLink (){
+    public void clickBottomProjectLink() {
         WebElement webElement = getBottomProjectLinkSelector();
         JavascriptExecutor js = (JavascriptExecutor) driver;
 //        js.executeScript("arguments[0].scrollIntoView(true)", webElement);
         js.executeScript("arguments[0].click;", webElement);
         webElement.click();
-
-
     }
 
 }

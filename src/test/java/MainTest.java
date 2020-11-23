@@ -24,38 +24,39 @@ public class MainTest extends BaseTest {
         loginSteps = new LoginSteps(driver);
         loginSteps.login(readProperties.getUsername(), readProperties.getPassword());
         Assert.assertTrue(true);
+
     }
 
-    @Test(enabled = false)
-    @Issue("AQA07-25")
-    public void loginNegativeTest () {
-      loginSteps = new LoginSteps(driver);
-      loginSteps.login("fail", readProperties.getPassword());
-
-      Assert.assertEquals(new LoginPage(driver, false).getErrorMessage().getText(),
-              "Email/Login or Password is incorrect. Please try again.",
-              "Incorrect message");
-    }
-
-    @Test(enabled = false)
-    public void loginNegativeTest1 () {
-      loginSteps = new LoginSteps(driver);
-      loginSteps.login(readProperties.getUsername(), "123");
-
-      Assert.assertEquals(new LoginPage(driver, false).getErrorMessage().getText(),
-              "Email/Login or Password is incorrect. Please try again.",
-              "Incorrect message");
-    }
-
-    @Test(enabled = false)
-    public void loginNegativeTest2 () {
-      loginSteps = new LoginSteps(driver);
-      loginSteps.login("", "");
-
-      Assert.assertEquals(new LoginPage(driver, false).getErrorPassword().getText(),
-              "Email/Login is required.",
-              "Incorrect message");
-    }
+//    @Test(enabled = false)
+//    @Issue("AQA07-25")
+//    public void loginNegativeTest () {
+//      loginSteps = new LoginSteps(driver);
+//      loginSteps.login("fail", readProperties.getPassword());
+//
+//      Assert.assertEquals(new LoginPage(driver, false).getErrorMessage().getText(),
+//              "Email/Login or Password is incorrect. Please try again.",
+//              "Incorrect message");
+//    }
+//
+//    @Test(enabled = false)
+//    public void loginNegativeTest1 () {
+//      loginSteps = new LoginSteps(driver);
+//      loginSteps.login(readProperties.getUsername(), "123");
+//
+//      Assert.assertEquals(new LoginPage(driver, false).getErrorMessage().getText(),
+//              "Email/Login or Password is incorrect. Please try again.",
+//              "Incorrect message");
+//    }
+//
+//    @Test(enabled = false)
+//    public void loginNegativeTest2 () {
+//      loginSteps = new LoginSteps(driver);
+//      loginSteps.login("", "");
+//
+//      Assert.assertEquals(new LoginPage(driver, false).getErrorPassword().getText(),
+//              "Email/Login is required.",
+//              "Incorrect message");
+//    }
 
     @Test(priority = 2)
     public void createProject (){
