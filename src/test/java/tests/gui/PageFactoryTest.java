@@ -1,4 +1,4 @@
-package tests;
+package tests.gui;
 
 
 
@@ -26,19 +26,19 @@ public class PageFactoryTest extends BaseTest {
         DashboardPagePF dashboardPagePF = loginPagePF.clickLoginButton();
         dashboardPagePF.clickSelectTestCases();
 
+        User user = new User();
+        LoginSteps loginSteps = new LoginSteps(driver);
+        loginSteps.login(user);
 
-//        LoginSteps loginSteps = new LoginSteps(driver);
-//        loginSteps.login(user);
+        Project project = new Project("Project by Natasha", "Description",
+                true, 1, false);
 
-//        Project project = new Project("Project by Natasha", "Description",
-//                true, 1, false);
-//
-//        ProjectBuilder projectBuilder = ProjectBuilder.newBuilder()
-//                .setName("")
-//                .setAnnouncement("")
-//                .build();
-//
-//    }
+        ProjectBuilder projectBuilder = ProjectBuilder.newBuilder()
+                .setName("")
+                .setAnnouncement("")
+                .build();
+
+
     }
         @Test
         public void secondTest () {

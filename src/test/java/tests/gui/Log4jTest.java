@@ -1,4 +1,4 @@
-package tests;
+package tests.gui;
 
 import models.Bar;
 import org.apache.logging.log4j.LogManager;

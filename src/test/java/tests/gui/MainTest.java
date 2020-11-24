@@ -1,3 +1,5 @@
+package tests.gui;
+
 import baseEntities.BaseTest;
 import io.qameta.allure.*;
 import org.testng.Assert;

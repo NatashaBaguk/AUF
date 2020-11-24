@@ -1,4 +1,4 @@
-package tests;
+package tests.gui;
 
 import models.ProjectLombokBuilder;
 import org.testng.annotations.Test;
