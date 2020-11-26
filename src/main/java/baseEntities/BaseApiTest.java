@@ -11,7 +11,6 @@ import utils.Listener;
 
 import static io.restassured.RestAssured.given;
 
-@Listeners(Listener.class)
 public abstract class BaseApiTest {
     public ReadProperties properties;
 

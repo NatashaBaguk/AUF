@@ -1,17 +1,17 @@
 package tests.api;
 
+import baseEntities.BaseApiTest;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseLogSpecification;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class apiTests {
+public class apiTests extends BaseApiTest {
 
     @Test
     public void test() {
