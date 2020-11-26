@@ -29,6 +29,7 @@ public class UIElement implements WebElement {
         this.jsExecutor = (JavascriptExecutor) driver;
     }
 
+
     @Override
     public void click() {
         try {

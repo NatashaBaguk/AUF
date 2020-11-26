@@ -17,7 +17,7 @@ public class LoginPagePF extends BasePage {
     public WebElement PASSWORD_SELECTOR;
 
     @FindBy(id = "button_primary")
-    private WebElement LOGIN_BUTTON;
+    public WebElement LOGIN_BUTTON;
 
     @FindBy(className = "error-text")
     public WebElement ERROR_MESSAGE_Selector;

@@ -31,4 +31,13 @@ public class RadioButton {
         UIElement link = item.findElement(By.tagName("input"));
         link.click();
     }
+
+    private UIElement selectOption(String option){
+        return uiElement.findElement(By.id(option));
+    }
+    public void clickRadio (String option){
+        UIElement item = selectOption(option);
+        item.click();
+
+    }
 }

@@ -1,35 +1,18 @@
 package pages;
 
 import baseEntities.BasePage;
+import browserService.BrowserService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import wrappers.Input;
+import wrappers.UIElement;
+
 
 public class LoginPage extends BasePage {
+    private static String ENDPOINT = "/auth/login";
 
-    private static String ENDPOINT = "index.php?/auth/login/";
-
-    @FindBy(id = "name")
-    public WebElement USERNAME_LOCATOR;
-
-
-    @FindBy(id = "password")
-    public WebElement PASSWORD_LOCATOR;
-
-
-    @FindBy(id = "button_primary")
-    public WebElement BUTTON_LOCATOR;
-
-
-    @FindBy(className = "error-text")
-    public WebElement ERROR_MESSAGE_LOCATOR;
-
-
-    @FindBy(xpath = "//div[text()='Email/Login is required.']")
-    public WebElement ERROR_PASSWORD_LOCATOR;
-
+    protected By emailSelector = By.id("name");
+    protected By passwordSelector = By.id("password");
+    protected By loginSelector = By.id("button_primary");
 
     public LoginPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
@@ -41,12 +24,18 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        return BUTTON_LOCATOR.isDisplayed();
+        return waits.isElementDisplayed(loginSelector);
     }
 
+    public UIElement getEmailField(String username) {
+        return new UIElement(driver, emailSelector);
+    }
 
-    public DashboardPage clickLoginButton() {
-        BUTTON_LOCATOR.click();
-        return new DashboardPage(driver, false);
+    public UIElement getPasswordField(String psw) {
+        return new UIElement(driver, passwordSelector);
+    }
+
+    public UIElement getLoginButton() {
+        return new UIElement(driver, loginSelector);
     }
 }

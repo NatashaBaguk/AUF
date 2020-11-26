@@ -56,9 +56,6 @@ public class EditProjectPage extends BasePage {
         getSaveProject().submit();
     }
 
-    public void setCheckbox (){
-        getCheckbox().click();
-    }
 }
 
 

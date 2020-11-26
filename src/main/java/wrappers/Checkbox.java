@@ -16,7 +16,15 @@ public class Checkbox {
         uiElement = new UIElement(driver, webElement);
     }
 
-    public void click (){
+    public void set() {
         uiElement.click();
+    }
+
+    public void unSet (){
+        uiElement.click();
+    }
+
+    public boolean isSet (){
+        return false;
     }
 }

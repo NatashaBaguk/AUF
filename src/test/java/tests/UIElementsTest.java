@@ -1,6 +1,7 @@
 package tests;
 
 import baseEntities.BaseTest;
+import models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -20,7 +21,7 @@ public class UIElementsTest extends BaseTest {
     @Test
     public void tableTest (){
         LoginSteps loginSteps = new LoginSteps(driver);
-        loginSteps.login(readProperties.getUsername(), readProperties.getPassword());
+        loginSteps.login(readProperties.getUsername(),readProperties.getPassword());
         
         driver.get("https://aqa071.testrail.io/index.php?/admin/projects/overview");
 
@@ -44,19 +45,10 @@ public class UIElementsTest extends BaseTest {
         driver.get("https://aqa071.testrail.io/index.php?/admin/projects/edit/63/1");
 
         RadioButton radioButton = new RadioButton(driver, By.cssSelector("div[style='width: 640px']"));
-        radioButton.clickRadioButton(2);
+        radioButton.clickRadioButton(0);
     }
 
-//    @Test
-//    public void dropDownMenu (){
-//        LoginSteps loginSteps = new LoginSteps(driver);
-//        loginSteps.login(readProperties.getUsername(), readProperties.getPassword());
-//
-//        driver.get("https://aqa071.testrail.io/index.php?/suites/view/63");
-//
-//        DropDownMenu dropDownMenu = new DropDownMenu(driver, By.xpath("//span[text()='Reports']"));
-//
-//    }
+
 
 
 }

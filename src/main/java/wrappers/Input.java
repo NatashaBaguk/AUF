@@ -17,7 +17,15 @@ public class Input {
         uiElement = new UIElement(driver, webElement);
     }
 
-    public void sendKeys (String s){
+    public void sendKeys(String s) {
         uiElement.sendKeys(s);
+    }
+
+    public void getValue (){
+        uiElement.getText();
+    }
+
+    public void clearField(){
+        uiElement.clear();
     }
 }
