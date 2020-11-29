@@ -23,6 +23,7 @@ public class ProjectSteps {
         EditProjectPage editProjectPage = new EditProjectPage(driver, true);
         editProjectPage.setButtonEdit();
         editProjectPage.setAnnouncement(text);
+//        editProjectPage.setCheckbox();
         editProjectPage.setSaveProject();
 
     }

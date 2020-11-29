@@ -23,19 +23,19 @@ public class DeleteProjectPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return driver.findElement(ICON_LOCATOR).isDisplayed();
+        return waits.getElementBy(ICON_LOCATOR).isDisplayed();
     }
 
     private WebElement getIcon (){
-        return driver.findElement(ICON_LOCATOR);
+        return waits.getElementBy(ICON_LOCATOR);
     }
 
     private WebElement getTick (){
-        return driver.findElement(TICK_LOCATOR);
+        return waits.getElementBy(TICK_LOCATOR);
     }
 
     private WebElement getButton (){
-        return driver.findElement(OK_BUTTON_LOCATOR);
+        return waits.getElementBy(OK_BUTTON_LOCATOR);
     }
 
     public void setIcon (){

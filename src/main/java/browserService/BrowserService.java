@@ -1,5 +1,7 @@
 package browserService;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,13 +14,15 @@ import java.io.File;
 
 public class BrowserService {
     private WebDriver driver = null;
+    private DriverManagerType driverManagerType = null;
 
     public BrowserService() {
         String browserName = new ReadProperties().getBrowserName();
 
         switch (browserName.toLowerCase()) {
             case "chrome" :
-                classLoader("drivers/chromedriver.exe","webdriver.chrome.driver");
+                driverManagerType = DriverManagerType.CHROME;
+                WebDriverManager.getInstance(driverManagerType).setup();
 
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--disable-gpu");
@@ -30,14 +34,18 @@ public class BrowserService {
                 break;
 
             case "firefox":
-                classLoader("drivers/geckodriver.exe","webdriver.gecko.driver");
+                driverManagerType = DriverManagerType.FIREFOX;
+                WebDriverManager.getInstance(driverManagerType).setup();
 
                 driver = new FirefoxDriver();
                 break;
             case "ie":
+                driverManagerType = DriverManagerType.IEXPLORER;
+                WebDriverManager.getInstance(driverManagerType).setup();
                 break;
             case "edge":
-                classLoader("drivers/msedgedriver.exe","webdriver.edge.driver");
+                driverManagerType = DriverManagerType.EDGE;
+                WebDriverManager.getInstance(driverManagerType).setup();
 
                 driver = new EdgeDriver();
                 driver.manage().window().maximize();
@@ -48,14 +56,6 @@ public class BrowserService {
                 break;
         }
     }
-
-    private void classLoader (String path, String webdriver){
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource(path).getFile());
-        String absolutePath = file.getAbsolutePath();
-        System.setProperty(webdriver, absolutePath);
-    }
-
     public WebDriver getDriver() {
         return driver;
     }

@@ -9,7 +9,7 @@ public class ProjectPage extends BasePage {
 
     private static String ENDPOINT = "index.php?/dashboard";
 
-    private static By ADD_BUTTON_LOCATOR = By.className("sidebar-button");
+    private static By ADD_BUTTON_LOCATOR = By.id("sidebar-projects-add");
     private static By NAME_FIELD_LOCATOR = By.id("name");
     private static By ADD_PROJECT_LOCATOR = By.id("accept");
 
@@ -25,25 +25,23 @@ public class ProjectPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return driver.findElement(ADD_BUTTON_LOCATOR).isDisplayed();
+        return waits.isElementDisplayed(By.id("sidebar-projects-add"));
     }
 
     private WebElement getAddProject (){
-       return driver.findElement(ADD_BUTTON_LOCATOR);
+       return waits.getElementBy(ADD_BUTTON_LOCATOR);
     }
 
     private WebElement getNameField (){
-        return driver.findElement(NAME_FIELD_LOCATOR);
+        return waits.getElementBy(NAME_FIELD_LOCATOR);
     }
 
     private WebElement getButtonAddProject (){
-        return driver.findElement(ADD_PROJECT_LOCATOR);
+        return waits.getElementBy(ADD_PROJECT_LOCATOR);
     }
 
-
-
     public void setAddProject (){
-        getAddProject().click();
+        getAddProject().click();;
     }
 
     public void setNameField (String name){
@@ -51,7 +49,7 @@ public class ProjectPage extends BasePage {
     }
 
     public void setButtonAddProject (){
-        getButtonAddProject().click();
+        getButtonAddProject().submit();;
     }
 
 }
