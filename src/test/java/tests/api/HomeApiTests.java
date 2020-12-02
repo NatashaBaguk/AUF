@@ -17,7 +17,7 @@ public class HomeApiTests extends BaseApiTest {
     private int projectId;
 
     @Test
-    public int addProjectApiTest() {
+    public void addProjectApiTest() {
         ProjectGson projectGson = ProjectGson.builder()
                 .name("Sudden show")
                 .suite_mode(1)
@@ -40,7 +40,6 @@ public class HomeApiTests extends BaseApiTest {
                         .statusCode(HttpStatus.SC_OK)
                         .extract().jsonPath().get("id");
 
-        return this.projectId;
 
     }
 
