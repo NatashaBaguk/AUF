@@ -3,14 +3,9 @@ package models;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 @Data
 @Builder
-@EqualsAndHashCode
-@Getter
-
 public class ProjectGson {
     int id;
     String name;
@@ -21,3 +16,4 @@ public class ProjectGson {
     int suite_mode;
     String url;
 }
+

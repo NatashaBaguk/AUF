@@ -14,32 +14,6 @@ import static org.hamcrest.Matchers.*;
 
 public class HomeApiTests extends BaseApiTest {
 
-    @Test(enabled = false)
-    public void userApiTest() {
-        given()
-                .when()
-                .get("/index.php?/api/v2/get_user/1")
-                .then()
-                .statusCode(HttpStatus.SC_OK)
-                .log().body();
-    }
-
-    @Test(enabled = false)
-    public void getUsersApiTest() {
-        given()
-                .when()
-                .get("index.php?/api/v2/get_users")
-                .then()
-                .log().body()
-                .body("id", hasItems(1, 2, 3))
-                .body("name[0]", equalTo("AQA7 Master"))
-                .body("email[0]", equalTo("atrostyanko+072@gmail.com"))
-                .statusCode(HttpStatus.SC_OK);
-
-    }
-
-
-    //Домашка по API
     private int projectId;
 
     @Test
@@ -101,7 +75,5 @@ public class HomeApiTests extends BaseApiTest {
                 .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
-
     }
-
 }
