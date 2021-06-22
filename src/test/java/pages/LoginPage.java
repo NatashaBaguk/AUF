@@ -1,26 +1,39 @@
 package pages;
 
 import baseEntities.BasePage;
-import browserService.ReadProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import wrappers.Input;
 
 public class LoginPage extends BasePage {
 
     private static String ENDPOINT = "index.php?/auth/login/";
 
+    @FindBy(id = "name")
+    public WebElement USERNAME_LOCATOR;
 
-    private static By USERNAME_LOCATOR = By.id("name");
-    private static By PASSWORD_LOCATOR = By.id("password");
-    private static By BUTTON_LOCATOR = By.id("button_primary");
-    private static By ERROR_MESSAGE_LOCATOR = By.className("error-text");
-    private static By ERROR_PASSWORD_LOCATOR = By.xpath("//div[text()='Email/Login is required.']");
+
+    @FindBy(id = "password")
+    public WebElement PASSWORD_LOCATOR;
+
+
+    @FindBy(id = "button_primary")
+    public WebElement BUTTON_LOCATOR;
+
+
+    @FindBy(className = "error-text")
+    public WebElement ERROR_MESSAGE_LOCATOR;
+
+
+    @FindBy(xpath = "//div[text()='Email/Login is required.']")
+    public WebElement ERROR_PASSWORD_LOCATOR;
+
 
     public LoginPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
     }
-
 
     @Override
     protected void openPage() {
@@ -28,44 +41,12 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        try {
-            return driver.findElement(BUTTON_LOCATOR).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        return BUTTON_LOCATOR.isDisplayed();
     }
 
-    private WebElement getUsernameField() {
-        return driver.findElement(USERNAME_LOCATOR);
+
+    public DashboardPage clickLoginButton() {
+        BUTTON_LOCATOR.click();
+        return new DashboardPage(driver, false);
     }
-
-    private WebElement getPasswordField() {
-        return driver.findElement(PASSWORD_LOCATOR);
-
-    }
-
-    private WebElement getButton (){
-        return driver.findElement(BUTTON_LOCATOR);
-    }
-
-    public void setUsernameField(String username) {
-        getUsernameField().sendKeys(username);
-    }
-
-    public void setPasswordField(String password) {
-        getPasswordField().sendKeys(password);
-    }
-
-    public void setButton (){
-        getButton().click();
-    }
-
-    public WebElement getErrorMessage(){
-        return driver.findElement(ERROR_MESSAGE_LOCATOR);
-    }
-
-    public WebElement getErrorPassword (){
-        return driver.findElement(ERROR_PASSWORD_LOCATOR);
-    }
-
 }
